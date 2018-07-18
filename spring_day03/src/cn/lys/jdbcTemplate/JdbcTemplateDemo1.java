@@ -12,6 +12,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 
 public class JdbcTemplateDemo1 {
 	
@@ -101,6 +103,15 @@ public class JdbcTemplateDemo1 {
 	//1 添加操作
 	@Test
 	public void add(){
+		
+		//C3P0连接数据库信息
+		/*ComboPooledDataSource dataSource = new ComboPooledDataSource();
+		dataSource.setDriverClass("com.mysql.jdbc.Driver");
+		dataSource.setJdbcUrl("jdbc:mysql:///test");
+		dataSource.setUser("root");
+		dataSource.setPassword("password");*/
+		
+		
 		//设置数据库信息
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
