@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 
 
 public class JdbcTemplateDemo1 {
