@@ -12,10 +12,10 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 
 public class Worker2 {
-	private static Logger logger;
+	private static Logger logger = Logger.getLogger(Worker2.class.getName());
 	private final static String TASK_QUEUE_NAME = "task_queue";
 	public static void main(String[] args) throws Exception{
-		//logger.info("开始接收任务" + System.currentTimeMillis());
+		logger.info("开始接收任务" + System.currentTimeMillis());
 		ConnectionFactory factory = new ConnectionFactory();
 		factory.setHost("127.0.0.1");
 		Connection connection = factory.newConnection();
@@ -39,7 +39,7 @@ public class Worker2 {
 					channel.basicAck(envelope.getDeliveryTag(), false);
 				}
 				
-				
+				logger.info("任务执行完毕！"+System.currentTimeMillis());
 			}
 		};
 		channel.basicConsume(TASK_QUEUE_NAME, false, consumer);
