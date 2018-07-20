@@ -1,5 +1,8 @@
 package cn.lys.c3p0;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserService {
 	
 	private UserDao userDao;

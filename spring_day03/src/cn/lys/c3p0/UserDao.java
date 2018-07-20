@@ -1,7 +1,9 @@
 package cn.lys.c3p0;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserDao {
 	
 	//得到JdbcTemplate对象
