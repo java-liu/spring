@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.lys.c3p0.UserService;
 
 
-@RequestMapping(value="/user")
+@RequestMapping("/user")
 @Controller
 public class UserController{
 	
@@ -17,7 +17,7 @@ public class UserController{
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/getUser.action")
+	@RequestMapping(value="/getUser")
 	public String getUser(){
 		String[] strs = new String[]{"Don't turn off lights", "Here I am","Glory of edge!","Because of you!","5、欧冠主题曲"};
 		System.out.println(strs.length);

@@ -20,8 +20,8 @@ public class UserDao {
 	public void add(){
 		//创建jdbctemplate对象
 		//JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		String sql = "insert into user value (?,?)";
-		jdbcTemplate.update(sql,"4","jack");
+		//String sql = "insert into user value (?,?)";
+		//jdbcTemplate.update(sql,"4","jack");
 		
 		
 		

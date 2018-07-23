@@ -12,16 +12,18 @@
         <!-- 启用springMVC注解 -->
         <context:annotation-config></context:annotation-config>
         <!-- 设置使用注解的类所在的jar包 --> 
-        <context:component-scan base-package="cn.lys.controller"></context:component-scan>
-        <!-- 完成请求和注解POJO的映射 -->
-        <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"></bean>
+        <context:component-scan base-package="cn.lys.controller">
+        	<context:exclude-filter type="annotation" expression="org.springframework.web.servlet.mvc.AbstractUrlViewController"/>
+        </context:component-scan>
+         <!-- 完成请求和注解POJO的映射 -->
+       <!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"></bean> -->
       
        <!-- 静态资源 -->
        <!-- <mvc:resources mapping="/resources/**"></mvc:resources> -->
     <!-- 开启AOP操作 ，开启aop自动代理-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>    
-       
- 
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>   
+ 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
     
 <!--     处理器映射器，将bean的name作为url进行查找，需要要配置Handler时指定beanname （就是url）
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean> 
@@ -31,7 +33,7 @@
     
      
       <!-- 视图解析器 prefix:前辍 suffix：后辍 -->
-        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="WEB-INF/views" p:suffix=".jsp"/>
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views" p:suffix=".jsp"/>
         
     <!--         1、创建对象
      <bean id="book" class="cn.lys.aop.Book"></bean>
