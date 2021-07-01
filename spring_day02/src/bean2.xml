@@ -15,8 +15,8 @@
        <!--  <context:annotation-config></context:annotation-config> -->
        
        <!-- 配置文件创建对象-->
-       <bean id="userService" class="cn.lys.annotation.UserService"></bean>
-       <bean id="userDao" class="cn.lys.annotation.UserDao"></bean>
-       <bean id="orderDao" class="cn.lys.annotation.OrderDao"></bean>
+       <bean id="userService" class="cn.ljava.spring.Service.impl.UserServiceImpl"></bean>
+       <bean id="userDao" class="cn.ljava.spring.Dao.UserDao"></bean>
+       <bean id="orderDao" class="cn.ljava.spring.Dao.OrderDao"></bean>
 
 </beans>

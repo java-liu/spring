@@ -9,14 +9,14 @@
         
        
      <!--1、配置对象-->
-     <bean id="book" class="cn.lys.aop.Book"></bean>
-     <bean id="myBook" class="cn.lys.aop.MyBook"></bean>
+     <bean id="book" class="cn.ljava.spring.aop.Book"></bean>
+     <bean id="myBook" class="cn.ljava.spring.aop.MyBook"></bean>
      
      
      <!-- 2、配置aop操作 -->
      <aop:config>
      	<!-- 2.1配置切入点 -->
-     	<aop:pointcut expression="execution(* cn.lys.aop.Book.*(..))" id="pointcut1"></aop:pointcut>
+     	<aop:pointcut expression="execution(* cn.ljava.spring.aop.Book.*(..))" id="pointcut1"></aop:pointcut>
      	
      	<!-- 2.2配置切面
      		把增强用到方法上面

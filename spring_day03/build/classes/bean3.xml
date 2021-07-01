@@ -10,8 +10,8 @@
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>    
        
      <!--1、创建对象-->
-    <bean id="book" class="cn.lys.aop.Book"></bean>
-    <bean id="myBook" class="cn.lys.aop.MyBook"></bean>
+    <bean id="book" class="Book"></bean>
+    <bean id="myBook" class="MyBook"></bean>
     
     <!-- -->        
        
