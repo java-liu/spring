@@ -1,5 +1,6 @@
-package cn.ljava.spring.annotation;
+package cn.ljava.spring.pojo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,9 @@ public class User {
 	public String getName() {
 		return name;
 	}
+
+	//相当于 <property name="name" value="Liuys"/>
+	@Value(value = "Liuys")
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -25,6 +29,4 @@ public class User {
 		
 		System.out.println("add............");
 	}
-	
-
 }

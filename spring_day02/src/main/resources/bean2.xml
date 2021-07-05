@@ -9,14 +9,14 @@
         <!--开启注解扫描
         	（1）到包里扫描类、方法、属性上面是否有注解
         -->
-        <context:component-scan base-package="cn.lys"></context:component-scan>
+        <context:component-scan base-package="cn.ljava.spring"></context:component-scan>
         
         <!-- 只扫描属性上面的注解 -->
-       <!--  <context:annotation-config></context:annotation-config> -->
+        <context:annotation-config></context:annotation-config>
        
        <!-- 配置文件创建对象-->
        <bean id="userService" class="cn.ljava.spring.Service.impl.UserServiceImpl"></bean>
-       <bean id="userDao" class="cn.ljava.spring.Dao.UserDao"></bean>
-       <bean id="orderDao" class="cn.ljava.spring.Dao.OrderDao"></bean>
+       <bean id="userDao" class="cn.ljava.spring.Dao.impl.UserDaoImpl"></bean>
+       <bean id="orderDao" class="cn.ljava.spring.Dao.impl.OrderDaoImpl" scope=""></bean>
 
 </beans>

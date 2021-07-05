@@ -1,12 +1,8 @@
 package cn.ljava.spring.Service.impl;
 
-import javax.annotation.Resource;
-
 import cn.ljava.spring.Dao.UserDao;
-import cn.ljava.spring.Dao.OrderDao;
 import cn.ljava.spring.Dao.impl.UserDaoImpl;
 import cn.ljava.spring.Service.UserService;
-import org.springframework.stereotype.Service;
 
 //@Service(value="userService")
 public class UserServiceImpl implements UserService {
@@ -37,8 +33,8 @@ public class UserServiceImpl implements UserService {
 		System.out.println("service add...........");
 		//userDao.add();
 		//orderDao.add();
-		userDao2.add();
-		userDao1.add();
+		//userDao2.add();
+		//userDao1.add();
 	}
 
 }
