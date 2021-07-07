@@ -2,11 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/cache/spring-aop.xsd">
-        
-        
-        <!--开启注解扫描
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+<!--开启注解扫描
         	（1）到包里扫描类、方法、属性上面是否有注解
         -->
         <context:component-scan base-package="cn.ljava.spring"></context:component-scan>
@@ -18,13 +21,33 @@
     <bean id="aopLog" class="cn.ljava.spring.log.AopLog"></bean>
     <bean id="afterLog" class="cn.ljava.spring.log.AfterLog"></bean>
 
+    <!--第一种方式：使用SpringAPI接口-->
     <!--配置AOP-->
+<!--
     <aop:config>
-        <!--切入点：expression:表达式,execution(要执行的位置 !* * * *) (..)代表任意参数-->
+        &lt;!&ndash;切入点：expression:表达式,execution(要执行的位置 !* * * *) (..)代表任意参数&ndash;&gt;
         <aop:pointcut id="pointcut" expression="execution(* cn.ljava.spring.service.impl.UserServiceImpl.*(..))"/>
-        <!--执行环绕增加-->
+        &lt;!&ndash;执行环绕增加&ndash;&gt;
         <aop:advisor advice-ref="aopLog" pointcut-ref="pointcut"/>
         <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
     </aop:config>
+-->
+    <!--方式二：自定义类-->
+    <!--<bean id="diy" class="cn.ljava.spring.diy.DiyPointCut"/>
+    <aop:config>
+        &lt;!&ndash;自定义切面，ref要引用的类&ndash;&gt;
+        <aop:aspect ref="diy">
+            &lt;!&ndash;切入点&ndash;&gt;
+            <aop:pointcut id="pointcut" expression="execution(* cn.ljava.spring.service.impl.UserServiceImpl.*(..))"/>
+            &lt;!&ndash;通知&ndash;&gt;
+            <aop:before method="before" pointcut-ref="pointcut"></aop:before>
+            <aop:after method="after" pointcut-ref="pointcut"></aop:after>
+        </aop:aspect>
+    </aop:config>-->
 
+    <!--方式三-->
+    <bean id="annotationPointCut" class="cn.ljava.spring.diy.AnnotationPointCut"></bean>
+
+    <!--开启注解支持!!! JDK默认 proxy-target-class="false"  cglib(proxy-target-class="true")-->
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
 </beans>

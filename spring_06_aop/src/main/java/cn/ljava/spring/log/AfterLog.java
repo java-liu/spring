@@ -1,6 +1,8 @@
 package cn.ljava.spring.log;
 
+import org.aopalliance.intercept.MethodInterceptor;
 import org.springframework.aop.AfterReturningAdvice;
+import org.springframework.aop.IntroductionAdvisor;
 
 import java.lang.reflect.Method;
 
