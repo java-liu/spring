@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/cache/spring-aop.xsd">
+        
+        
+        <!--开启注解扫描
+        	（1）到包里扫描类、方法、属性上面是否有注解
+        -->
+        <context:component-scan base-package="cn.ljava.spring"></context:component-scan>
+        
+        <!-- 只扫描属性上面的注解 -->
+        <context:annotation-config></context:annotation-config>
+    <!--注册bean-->
+    <bean id="userService" class="cn.ljava.spring.service.impl.UserServiceImpl"></bean>
+    <bean id="aopLog" class="cn.ljava.spring.log.AopLog"></bean>
+    <bean id="afterLog" class="cn.ljava.spring.log.AfterLog"></bean>
+
+    <!--配置AOP-->
+    <aop:config>
+        <!--切入点：expression:表达式,execution(要执行的位置 !* * * *) (..)代表任意参数-->
+        <aop:pointcut id="pointcut" expression="execution(* cn.ljava.spring.service.impl.UserServiceImpl.*(..))"/>
+        <!--执行环绕增加-->
+        <aop:advisor advice-ref="aopLog" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+
+</beans>
